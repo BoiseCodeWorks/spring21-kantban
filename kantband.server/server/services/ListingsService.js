@@ -1,6 +1,6 @@
 import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
-import { socketService } from './SocketService'
+import { socketProvider } from '../SocketProvider'
 
 class ListingsService {
   async getAll(query = {}) {
@@ -39,9 +39,9 @@ class ListingsService {
       .populate('highestBidder', 'name picture')
       .execPopulate()
     // NOTE tells everyone on the page that the listing has been updated
-    socketService.io.emit('bid', listing)
+    socketProvider.io.emit('bid', listing)
 
-    socketService.messageRoom(listing.id, 'bid', listing)
+    socketProvider.messageRoom(listing.id, 'bid', listing)
 
     return listing
   }
