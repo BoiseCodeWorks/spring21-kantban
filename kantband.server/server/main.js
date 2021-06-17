@@ -9,7 +9,8 @@ import { createServer } from 'http'
 // create server & socketServer
 const app = express()
 const httpServer = createServer(app)
-const io = new Server(httpServer)
+// TODO                            vvv add this config object
+const io = new Server(httpServer, { cors: { origin: '*' } })
 const port = process.env.PORT || 3000
 
 // Establish Socket
