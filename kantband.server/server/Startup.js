@@ -25,7 +25,7 @@ export class Startup {
   }
 
   static configureCors(app) {
-    const allowedDomains = ['http://localhost:8080']
+    const allowedDomains = ['http://localhost:8080', 'https://jakeoverall.github.io']
     const corsOptions = {
       origin(origin, callback) {
         if (process.env.NODE_ENV === 'dev') {

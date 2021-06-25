@@ -1,4 +1,6 @@
 module.exports = {
-  outputDir: '../kantband.server/client',
+  // NOTE to host on github publicPath: '/YOUR-GITHUB-REPOSITORY-NAME/',
+  publicPath: '/jakeoverall/',
+  outputDir: '../docs',
   productionSourceMap: false
 }
