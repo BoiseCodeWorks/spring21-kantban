@@ -1,4 +1,5 @@
 import { AppState } from '../AppState'
+import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 
 class ListingsService {
@@ -9,7 +10,7 @@ class ListingsService {
 
   async placeBid(listing, bid) {
     const res = await api.post(`api/listings/${listing.id}/bid`, bid)
-    console.log(res.data)
+    logger.log(res.data)
   }
 }
 
